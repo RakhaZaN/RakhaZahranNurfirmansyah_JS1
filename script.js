@@ -1,64 +1,101 @@
 // If... Else... Nested If
-const jmlAbsen = 0
-const nilai = 0
-const kkm = 75
-let isLulus = 'Tidak Lulus'
+const jmlAbsen = document.getElementById('absen')
+const nilai = document.getElementById('nilai')
+const btnHitung = document.getElementById('btnHitung')
 
-if (nilai <= 90) {
-    if (jmlAbsen > 7) nilai -= 3
-    else if (jmlAbsen > 5) nilai -= 2
-} else if (nilai <= 75) {
-    if (jmlAbsen < 3) nilai += 3
-    else if (jmlAbsen < 5) nilai += 2
-} else {
-    if (jmlAbsen < 3) nilai += 2
-    else if (jmlAbsen < 5) nilai += 1
-}
+btnHitung.addEventListener('click', function () {
+    const valJmlAbsen = jmlAbsen.value
+    let valNilai = nilai.value
+    const kkm = 75
+    let isLulus = 'Tidak Lulus'
 
-isLulus = nilai > kkm ? 'Lulus' : lulus
+    if (valNilai <= 90) {
+        if (valJmlAbsen > 5) valNilai -= 3
+        else if (valJmlAbsen > 3) valNilai -= 2
+    } else if (valNilai <= 75) {
+        if (valJmlAbsen > 5) valNilai -= 3
+        else if (valJmlAbsen > 3) valNilai -= 2
+        else if (valJmlAbsen < 3) valNilai += 3
+        else if (valJmlAbsen < 5) valNilai += 2
+    } else {
+        if (valJmlAbsen > 5) valNilai -= 3
+        else if (valJmlAbsen > 3) valNilai -= 2
+        else if (valJmlAbsen < 3) valNilai += 2
+        else if (valJmlAbsen < 5) valNilai += 1
+    }
 
-console.log(`Anda dinyatakan ${isLulus} dalam ujian kali ini.`);
+    isLulus = valNilai >= kkm ? 'Lulus' : isLulus
+    console.log(`Anda dinyatakan ${isLulus} dalam ujian kali ini.`)
+
+    document.getElementById('nilaiAkhir').innerHTML = valNilai
+    document.getElementById('lulus').innerHTML = isLulus
+})
 
 
 // Switch Case
-const rangeTahun = ''
-let gen
+document.getElementById('btnPilih').addEventListener('click', function () {
+    const rangeTahun = document.querySelector("input[type='radio'][name='rangeTahun']:checked").value
+    let gen
 
-switch (rangeTahun) {
-    case "1946":
-        gen = "Baby Boomers"
-    case "1965-1976":
-        gen = "X"
-    case "1977-1994":
-        gen = "Y"
-    case "1995-2010":
-        gen = "Z"
-    case "2011-2025":
-        gen = "Aplha"
-    default:
-        gen = "Belum Terdefinisi"
-}
+    switch (rangeTahun) {
+        case "1964":
+            gen = "Baby Boomers"
+            break
+        case "1965-1976":
+            gen = "X"
+            break
+        case "1977-1994":
+            gen = "Y"
+        case "1995-2010":
+            gen = "Z"
+            break
+        case "2011-2025":
+            gen = "Aplha"
+            break
+        default:
+            gen = "Belum Terdefinisi"
+            break
+    }
 
-console.log("Gen Anda: " + gen);
+    console.log("Gen Anda: " + gen);
+
+    document.getElementById('gen').innerHTML = "Gen Anda: " + gen
+})
 
 // For Statement
-const binatang = ['ayam', 'Gajah', 'Kucing', 'Harimau', 'Macan']
+const container = document.getElementById('container')
+const binatang = ['Ayam', 'Gajah', 'Kucing', 'Harimau', 'Macan']
+let list = ''
 
-for (i = 0; i < binatang.length; i++) {
-    console.log(`Binatang ke-${i + 1}: ${binatang[i]}`);
+for (let i = 0; i < binatang.length; i++) {
+    const listItem = document.createElement('li')
+    listItem.textContent = `Binatang ke-${i + 1}: ${binatang[i]}`
+    container.appendChild(listItem)
 }
 
 // While... Do While
-const i = 4
-do {
-    console.log(i)
-    i--
-} while (i > 0)
+const count = document.getElementById('count');
+const counter = document.getElementById('counter')
+document.getElementById('btnCount').addEventListener('click', function () {
+    let i = parseInt(count.value)
+    let countdown = ''
+    do {
+        countdown += i + ' '
+        i--
+    } while (i >= 0)
+    counter.textContent = countdown
+})
+
+
 
 // Function
+
 function luasPersegi(s) {
     return s * s
 }
 
-const s = 4
-console.log(`Luas Persegi dengan sisi (${s}): ${luasPersegi(s)}`);
+document.getElementById('btnHitungLuas').addEventListener('click', () => {
+    const s = document.getElementById('sisi').value
+    let luas = luasPersegi(s)
+    document.getElementById('luas').textContent = luas
+})

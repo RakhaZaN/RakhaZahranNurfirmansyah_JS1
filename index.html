@@ -9,6 +9,100 @@
     <h1>Tugas Javascript</h1>
     <p>Rakha Zahran Nurfirmansyah - Web Morning C</p>
 
+    <section>
+      <h2>If-Else</h2>
+
+      <table border="0">
+        <tr>
+          <td>
+            <label for="nilai">Nilai</label>
+          </td>
+          <td>
+            <input
+              type="number"
+              name="nilai"
+              id="nilai"
+              min="0"
+              max="100"
+              value="0"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="absen">Absen</label>
+          </td>
+          <td>
+            <input type="number" name="absen" id="absen" min="0" value="0" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" id="btnHitung">Hitung Nilai</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Nilai Akhir</td>
+          <td><span id="nilaiAkhir"></span></td>
+        </tr>
+        <tr>
+          <td>Anda dinyatakan:</td>
+          <td>
+            <b><span id="lulus"></span></b>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Switch case</h2>
+      <span>Tahun Lahir</span>
+      <br />
+      <input type="radio" name="rangeTahun" id="opt1" value="1964" />
+      <label for="opt1">1964</label>
+      <input type="radio" name="rangeTahun" id="opt2" value="1965-1976" />
+      <label for="opt2">1965 - 1976</label>
+      <input type="radio" name="rangeTahun" id="opt3" value="1977-1994" />
+      <label for="opt3">1977 - 1994</label>
+      <input type="radio" name="rangeTahun" id="opt4" value="1995-2010" />
+      <label for="opt4">195 - 2010</label>
+      <input type="radio" name="rangeTahun" id="opt5" value="2011-2025" />
+      <label for="opt5">2011 - 2025</label>
+      <input type="radio" name="rangeTahun" id="opt6" value="lainnya" />
+      <label for="opt5">Lainnya</label>
+      <br />
+      <button type="button" id="btnPilih">Pilih</button>
+      <br />
+      <span id="gen"></span>
+    </section>
+
+    <section>
+      <h2>For statement</h2>
+
+      <p>Menampilkan list binatang</p>
+      <div id="container"></div>
+    </section>
+
+    <section>
+      <h2>Do While statement</h2>
+
+      <label for="count">Count: </label>
+      <input type="number" name="count" id="count" value="0" min="0" />
+      <button type="button" id="btnCount">Hitung Mundur</button>
+      <br />
+      <div id="counter"></div>
+    </section>
+
+    <section>
+      <h2>Function</h2>
+
+      <label for="sisi">Sisi Persegi</label>
+      <input type="number" name="sisi" id="sisi" min="0" value="0" />
+      <button type="button" id="btnHitungLuas">Hitung Luas</button>
+      <br />
+      <p>Luas Persegi: <span id="luas"></span></p>
+    </section>
+
     <!-- Include JS file -->
     <script src="./script.js"></script>
   </body>
